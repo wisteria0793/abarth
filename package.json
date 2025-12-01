@@ -1,0 +1,21 @@
+{
+  "name": "abarth",
+  "version": "1.0.0",
+  "description": "本プロジェクトは、民泊施設におけるゲストのチェックイン・アウト、アメニティのリクエスト、宿泊税の支払い、観光案内などを、ゲスト自身のスマートフォンから行えるようにするBYOD（Bring Your Own Device）型システムを構築することを目的としています。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wisteria0793/abarth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/wisteria0793/abarth/issues"
+  },
+  "homepage": "https://github.com/wisteria0793/abarth#readme"
+}
