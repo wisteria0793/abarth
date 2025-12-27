@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # バックエンドサービス（Express）
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: abarth-backend
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    command: npm start
+    networks:
+      - abarth-network
+
+  # フロントエンドサービス（React）
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: abarth-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:3001
+      - DANGEROUSLY_DISABLE_HOST_CHECK=true
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    command: npm start
+    depends_on:
+      - server
+    networks:
+      - abarth-network
+
+networks:
+  abarth-network:
+    driver: bridge
