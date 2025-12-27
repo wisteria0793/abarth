@@ -75,42 +75,6 @@ function App() {
           <button className="action-btn">{t('add_amenity')}</button>
           <button className="action-btn">{t('faq')}</button>
         </section>
-
-        <section className="hero">
-          <h1 className="hero-title">{t('hero_title')}</h1>
-          <p className="hero-sub">{t('hero_subtitle')}</p>
-        </section>
-
-        <section id="amenities" className="section">
-          <h2 className="section-title">{t('amenities_title')}</h2>
-          <div className="cards">
-            <div className="card" role="list">
-              {Array.isArray(amenities) && amenities.map((item, idx) => (
-                <li key={idx} role="listitem">{item}</li>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="location" className="section">
-          <h2 className="section-title">{t('location_title')}</h2>
-          <p>{t('location_desc')}</p>
-        </section>
-        <section id="amenities" className="section">
-          <h2 className="section-title">{t('amenities_title')}</h2>
-          <div className="cards">
-            <div className="card" role="list">
-              {Array.isArray(amenities) && amenities.map((item, idx) => (
-                <li key={idx} role="listitem">{item}</li>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="location" className="section">
-          <h2 className="section-title">{t('location_title')}</h2>
-          <p>{t('location_desc')}</p>
-        </section>
       </main>
 
       <footer className="footer">
