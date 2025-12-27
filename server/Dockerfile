@@ -5,8 +5,8 @@ WORKDIR /app
 # パッケージファイルをコピー
 COPY package.json package-lock.json* ./
 
-# 依存関係をインストール
-RUN npm install
+# 依存関係をインストール（ロックファイルに従い再現性重視）
+RUN npm ci
 
 # ソースコードをコピー
 COPY . .
