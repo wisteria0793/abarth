@@ -96,6 +96,21 @@ function App() {
           <h2 className="section-title">{t('location_title')}</h2>
           <p>{t('location_desc')}</p>
         </section>
+        <section id="amenities" className="section">
+          <h2 className="section-title">{t('amenities_title')}</h2>
+          <div className="cards">
+            <div className="card" role="list">
+              {Array.isArray(amenities) && amenities.map((item, idx) => (
+                <li key={idx} role="listitem">{item}</li>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="location" className="section">
+          <h2 className="section-title">{t('location_title')}</h2>
+          <p>{t('location_desc')}</p>
+        </section>
       </main>
 
       <footer className="footer">
