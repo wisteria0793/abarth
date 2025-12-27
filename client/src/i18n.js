@@ -25,7 +25,19 @@ const resources = {
       location_title: 'アクセス',
       location_desc: '主要駅から徒歩圏内。周辺に飲食店や観光スポットが多数あります。',
       footer_contact: 'お問い合わせ',
-      footer_rights: '© Minpaku Stay'
+      footer_rights: '© Minpaku Stay',
+      // Onboarding
+      booking_info_title: '予約内容のご確認',
+      booking_info_desc: 'お客様にご理解いただきたい予約条件をご説明します。',
+      booking_info_checkin: 'チェックイン：15:00 以降',
+      booking_info_checkout: 'チェックアウト：11:00 まで',
+      booking_info_agree: '予約内容に同意する',
+      booking_info_next: '次へ',
+      house_rules_title: 'ハウスルールのご確認',
+      house_rules_desc: '快適な滞在のため、以下のルールをお守りください。',
+      house_rules_list: ['22:00以降は静粛にしてください', 'ペットの持ち込みは禁止です', '喫煙は禁止です（ベランダのみ可）', 'パーティーや大人数での利用は禁止です', 'チェックアウト後の返却物は必ず返してください'],
+      house_rules_agree: 'ハウスルールに同意する',
+      house_rules_complete: '確認完了'
     }
   },
   en: {
@@ -51,7 +63,19 @@ const resources = {
       location_title: 'Location',
       location_desc: 'Within walking distance of major stations. Restaurants and attractions nearby.',
       footer_contact: 'Contact',
-      footer_rights: '© Minpaku Stay'
+      footer_rights: '© Minpaku Stay',
+      // Onboarding
+      booking_info_title: 'Booking Information',
+      booking_info_desc: 'Please review the booking terms and conditions.',
+      booking_info_checkin: 'Check-in: 3:00 PM onwards',
+      booking_info_checkout: 'Check-out: Until 11:00 AM',
+      booking_info_agree: 'I agree to the booking information',
+      booking_info_next: 'Next',
+      house_rules_title: 'House Rules',
+      house_rules_desc: 'Please follow these rules for a comfortable stay.',
+      house_rules_list: ['Keep quiet after 10:00 PM', 'No pets allowed', 'No smoking (balcony only)', 'No parties or large gatherings', 'Return all belongings by check-out time'],
+      house_rules_agree: 'I agree to the house rules',
+      house_rules_complete: 'Onboarding Complete'
     }
   },
   zh: {
@@ -77,7 +101,19 @@ const resources = {
       location_title: '位置',
       location_desc: '步行可达主要车站。附近有餐馆和景点。',
       footer_contact: '联系',
-      footer_rights: '© Minpaku Stay'
+      footer_rights: '© Minpaku Stay',
+      // Onboarding
+      booking_info_title: '预订信息确认',
+      booking_info_desc: '请确认预订条款和条件。',
+      booking_info_checkin: '入住：下午3:00以后',
+      booking_info_checkout: '退房：11:00之前',
+      booking_info_agree: '我同意预订信息',
+      booking_info_next: '下一步',
+      house_rules_title: '房屋规则',
+      house_rules_desc: '为了舒适的住宿，请遵守以下规则。',
+      house_rules_list: ['晚上10:00后保持安静', '禁止携带宠物', '禁止吸烟（阳台除外）', '禁止聚会或大人数聚集', '退房时必须归还所有物品'],
+      house_rules_agree: '我同意房屋规则',
+      house_rules_complete: '入住准备完成'
     }
   },
   ko: {
@@ -103,7 +139,19 @@ const resources = {
       location_title: '위치',
       location_desc: '주요 역에서 도보로 이동 가능. 주변에 식당과 관광지가 있습니다.',
       footer_contact: '문의',
-      footer_rights: '© Minpaku Stay'
+      footer_rights: '© Minpaku Stay',
+      // Onboarding
+      booking_info_title: '예약 정보 확인',
+      booking_info_desc: '예약 약관을 확인해주세요.',
+      booking_info_checkin: '체크인: 오후 3:00 이후',
+      booking_info_checkout: '체크아웃: 11:00까지',
+      booking_info_agree: '예약 정보에 동의합니다',
+      booking_info_next: '다음',
+      house_rules_title: '숙소 규칙',
+      house_rules_desc: '편안한 숙박을 위해 다음 규칙을 지켜주세요.',
+      house_rules_list: ['오후 10:00 이후 조용히 해주세요', '반려동물은 반입 금지입니다', '흡연은 금지입니다(베란다만 가능)', '파티 또는 대규모 모임은 금지입니다', '체크아웃 시 모든 물품을 반환해주세요'],
+      house_rules_agree: '숙소 규칙에 동의합니다',
+      house_rules_complete: '준비 완료'
     }
   },
   th: {
@@ -129,7 +177,19 @@ const resources = {
       location_title: 'ทำเลที่ตั้ง',
       location_desc: 'เดินถึงสถานีหลักได้ง่าย ล้อมรอบด้วยร้านอาหารและแหล่งท่องเที่ยว',
       footer_contact: 'ติดต่อ',
-      footer_rights: '© Minpaku Stay'
+      footer_rights: '© Minpaku Stay',
+      // Onboarding
+      booking_info_title: 'ยืนยันข้อมูลการจอง',
+      booking_info_desc: 'โปรดตรวจสอบเงื่อนไขการจอง',
+      booking_info_checkin: 'เช็คอิน: บ่าย 3:00 เป็นต้นไป',
+      booking_info_checkout: 'เช็คเอาต์: ก่อน 11:00',
+      booking_info_agree: 'ฉันยอมรับข้อมูลการจอง',
+      booking_info_next: 'ต่อไป',
+      house_rules_title: 'กฎหมายบ้านพัก',
+      house_rules_desc: 'โปรดปฏิบัติตามกฎต่อไปนี้เพื่อการพักที่สะดวก',
+      house_rules_list: ['หลังจาก 22:00 โปรดเงียบสงบ', 'ห้ามนำสัตว์เลี้ยง', 'ห้ามสูบบุหรี่ (เฉพาะระเบียง)', 'ห้ามมีงานเลี้ยงหรือการชุมนุมจำนวนมาก', 'โปรดคืนสิ่งของทั้งหมดก่อนเช็คเอาต์'],
+      house_rules_agree: 'ฉันยอมรับกฎหมายบ้านพัก',
+      house_rules_complete: 'เตรียมพร้อมแล้ว'
     }
   }
 };

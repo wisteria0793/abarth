@@ -10,7 +10,7 @@ const languages = [
   { code: 'th', labelKey: 'language_th' }
 ];
 
-export default function LanguageSelector() {
+export default function LanguageSelector({ onComplete }) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(i18n.language || 'ja');
@@ -23,14 +23,20 @@ export default function LanguageSelector() {
       setSelected(saved);
       i18n.changeLanguage(saved);
       document.documentElement.lang = saved;
+      if (onComplete) {
+        onComplete();
+      }
     }
-  }, []);
+  }, [onComplete]);
 
   const confirm = () => {
     localStorage.setItem('lang', selected);
     i18n.changeLanguage(selected);
     document.documentElement.lang = selected;
     setOpen(false);
+    if (onComplete) {
+      onComplete();
+    }
   };
 
   if (!open) return null;
