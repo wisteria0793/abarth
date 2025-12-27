@@ -66,10 +66,6 @@ function App() {
     <div className="App">
       <header className="header">
         <div className="brand" aria-label={t('brand')}>{t('brand')}</div>
-        <nav className="nav" aria-label="Primary">
-          <a href="#amenities">{t('amenities_title')}</a>
-          <a href="#location">{t('location_title')}</a>
-        </nav>
         <LanguageSwitcher />
       </header>
 
