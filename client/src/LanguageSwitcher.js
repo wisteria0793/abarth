@@ -35,13 +35,16 @@ export default function LanguageSwitcher() {
 
 const styles = {
   select: {
-    padding: '10px 14px',
-    borderRadius: 8,
-    border: '2px solid #e2e8f0',
+    padding: '16px 20px',
+    borderRadius: 10,
+    border: '2px solid #0ea5e9',
     background: '#fff',
-    fontSize: 16,
-    fontWeight: 500,
+    fontSize: 20,
+    fontWeight: 600,
     cursor: 'pointer',
-    transition: 'all 0.2s ease'
+    transition: 'all 0.2s ease',
+    height: 'auto',
+    minHeight: '56px',
+    color: '#0f172a'
   }
 };
