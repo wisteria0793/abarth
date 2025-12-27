@@ -27,10 +27,11 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Hel
 .cta:focus { outline: 3px solid #93c5fd; outline-offset: 2px; }
 .cta:disabled { opacity: 0.5; cursor: not-allowed; }
 
-.action-buttons { display: flex; flex-wrap: wrap; gap: 12px; padding: 16px 24px; background: var(--bg); border-bottom: 1px solid var(--border); justify-content: center; }
-.action-btn { padding: 10px 16px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); color: var(--text); cursor: pointer; font-size: 14px; font-weight: 500; }
-.action-btn:hover { background: #f1f5f9; border-color: var(--primary); }
+.action-buttons { display: flex; flex-direction: column; gap: 12px; padding: 24px; background: var(--bg); border-bottom: 1px solid var(--border); }
+.action-btn { padding: 14px 20px; border: none; border-radius: 10px; background: var(--primary); color: var(--primary-contrast); cursor: pointer; font-size: 16px; font-weight: 600; width: 100%; text-align: center; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(14, 165, 233, 0.15); }
+.action-btn:hover { background: #0284c7; box-shadow: 0 4px 16px rgba(14, 165, 233, 0.3); transform: translateY(-1px); }
 .action-btn:focus { outline: 3px solid #93c5fd; outline-offset: 2px; }
+.action-btn:active { transform: translateY(0); box-shadow: 0 1px 4px rgba(14, 165, 233, 0.2); }
 
 .section-title { font-size: 20px; margin: 0 0 16px; }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
