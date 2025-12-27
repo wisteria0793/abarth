@@ -77,7 +77,6 @@ function App() {
         <section className="hero">
           <h1 className="hero-title">{t('hero_title')}</h1>
           <p className="hero-sub">{t('hero_subtitle')}</p>
-          <button className="cta" aria-label={t('cta_book')}>{t('cta_book')}</button>
         </section>
 
         <section id="amenities" className="section">
