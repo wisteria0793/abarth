@@ -74,6 +74,12 @@ function App() {
       </header>
 
       <main>
+        <section className="action-buttons">
+          <button className="action-btn">{t('wifi_info')}</button>
+          <button className="action-btn">{t('add_amenity')}</button>
+          <button className="action-btn">{t('faq')}</button>
+        </section>
+
         <section className="hero">
           <h1 className="hero-title">{t('hero_title')}</h1>
           <p className="hero-sub">{t('hero_subtitle')}</p>
