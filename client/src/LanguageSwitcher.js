@@ -21,8 +21,8 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <label style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-      <span aria-hidden="true">🌐</span>
+    <label style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+      <span aria-hidden="true" style={{ fontSize: 20 }}>🌐</span>
       <span className="visually-hidden">Language</span>
       <select aria-label={t('language_select_title')} value={current} onChange={onChange} style={styles.select}>
         {options.map(opt => (
@@ -35,9 +35,13 @@ export default function LanguageSwitcher() {
 
 const styles = {
   select: {
-    padding: '6px 10px',
-    borderRadius: 6,
-    border: '1px solid #ccc',
-    background: '#fff'
+    padding: '10px 14px',
+    borderRadius: 8,
+    border: '2px solid #e2e8f0',
+    background: '#fff',
+    fontSize: 16,
+    fontWeight: 500,
+    cursor: 'pointer',
+    transition: 'all 0.2s ease'
   }
 };
