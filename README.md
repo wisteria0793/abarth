@@ -123,6 +123,152 @@
   ]
 }
 ```
+## Docker を使用したローカル開発環境
+
+### セットアップと実行
+
+#### 前提条件
+- Docker がインストールされていること
+- Docker Compose がインストールされていること
+
+#### ディレクトリ構成
+```
+/workspaces/abarth/
+├── docker-compose.yml      # Docker Compose 設定ファイル
+├── server/
+│   ├── Dockerfile          # バックエンドサーバー用
+│   ├── package.json
+│   └── index.js
+├── client/
+│   ├── Dockerfile          # フロントエンド用
+│   ├── package.json
+│   └── src/
+└── .dockerignore           # Docker ビルド時に除外するファイル
+```
+
+#### 1. コンテナのビルドと起動
+
+```bash
+# ディレクトリをプロジェクトルートに移動
+cd /workspaces/abarth
+
+# コンテナをビルドして起動
+docker-compose up --build
+```
+
+初回実行時は `--build` フラグを使用してイメージをビルドします。
+
+#### 2. バックグラウンドで実行
+
+```bash
+# デタッチモードで起動（バックグラウンド実行）
+docker-compose up -d --build
+```
+
+#### 3. サービスへのアクセス
+
+起動後、以下のアドレスでアクセス可能：
+
+- **フロントエンド (React):** http://localhost:3000
+- **バックエンド (Express):** http://localhost:3001
+- **API テストエンドポイント:** http://localhost:3001/api
+
+#### 4. ログの確認
+
+```bash
+# すべてのサービスのログを表示
+docker-compose logs -f
+
+# 特定のサービスのログのみ表示
+docker-compose logs -f server    # バックエンドのログ
+docker-compose logs -f client    # フロントエンドのログ
+
+# 直近 N 行を表示
+docker-compose logs --tail=100
+```
+
+#### 5. コンテナの停止と削除
+
+```bash
+# コンテナを停止
+docker-compose stop
+
+# コンテナを停止・削除
+docker-compose down
+
+# ボリューム（データ）も削除する場合
+docker-compose down -v
+```
+
+#### 6. 個別にコンテナにアクセス
+
+```bash
+# バックエンドコンテナにアクセス
+docker-compose exec server sh
+
+# フロントエンドコンテナにアクセス
+docker-compose exec client sh
+
+# npm コマンドの実行例
+docker-compose exec server npm install package-name
+docker-compose exec client npm install package-name
+```
+
+### サービスの詳細
+
+#### バックエンド (server)
+- **イメージ:** Node.js 18 (Alpine)
+- **ポート:** 3001
+- **ホットリロード:** npm の `nodemon` により、ファイル変更時に自動再起動
+- **環境変数:** `NODE_ENV=development`
+- **マウント:** `./server` フォルダをコンテナ内の `/app` にマウント
+
+#### フロントエンド (client)
+- **イメージ:** Node.js 18 (Alpine)
+- **ポート:** 3000
+- **ホットリロード:** React Scripts により、ファイル変更時に自動リロード
+- **環境変数:**
+  - `REACT_APP_API_URL=http://localhost:3001`
+  - `DANGEROUSLY_DISABLE_HOST_CHECK=true` (開発環境用)
+- **マウント:** `./client` フォルダをコンテナ内の `/app` にマウント
+
+### よくあるトラブルシューティング
+
+#### ポートが既に使用されている場合
+```bash
+# ポートの使用状況を確認（例：ポート3000）
+lsof -i :3000
+
+# 別のポートを使用する場合、docker-compose.yml を編集
+# ports: "3000:3000" を "3002:3000" に変更
+```
+
+#### コンテナが起動しない場合
+```bash
+# キャッシュをクリアして再構築
+docker-compose down -v
+docker-compose up --build
+```
+
+#### npm install でエラーが出た場合
+```bash
+# node_modules をクリア
+docker-compose down -v
+docker-compose up --build
+```
+
+### 開発ワークフロー
+
+1. コンテナを起動
+2. コード編集（ローカルのエディタで）
+3. ホットリロード機能により自動的に反映
+4. ブラウザで確認
+5. 必要に応じてコンテナのログで確認
+
+この環境により、複数の開発者が同じ環境で開発できるため、「自分の環境では動くけど、他の環境では動かない」といった問題を回避できます。
+
+---
+
 ## 開発手順 (MVP)
 
 #### ステップ1: 【バックエンド】モックAPIの構築

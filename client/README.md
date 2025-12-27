@@ -45,6 +45,10 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+## Language Selection
+
+On first visit, a language selection modal appears. Supported languages: Japanese (ja), English (en), Chinese (zh), Korean (ko), Thai (th). Your choice is saved in `localStorage` under the key `lang` and applied across sessions. You can clear the selection by removing that key in the browser devtools to re-trigger the modal.
+
 ### Code Splitting
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
