@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export default function HouseRulesPage({ onAgree }) {
+function HouseRulesPage({ onAgree, onBack }) {
   const { t } = useTranslation();
   const [agreed, setAgreed] = useState(false);
+  const isViewMode = !!onBack;
   const rules = t('house_rules_list', { returnObjects: true });
 
   const handleComplete = () => {
@@ -13,10 +14,10 @@ export default function HouseRulesPage({ onAgree }) {
   };
 
   return (
-    <div className="page-overlay">
-      <div className="page-card">
-        <h1 className="page-title">{t('house_rules_title')}</h1>
-        <p className="page-desc">{t('house_rules_desc')}</p>
+    <div className="App">
+      <main style={{ padding: '40px 24px', maxWidth: '800px', margin: '0 auto' }}>
+        <h1 style={{ fontSize: '28px', marginBottom: '12px' }}>{t('house_rules_title')}</h1>
+        <p style={{ color: '#64748b', marginBottom: '32px', fontSize: '16px' }}>{t('house_rules_desc')}</p>
         
         <ul className="terms-list">
           {Array.isArray(rules) && rules.map((rule, idx) => (
@@ -42,7 +43,10 @@ export default function HouseRulesPage({ onAgree }) {
         >
           {t('house_rules_complete')}
         </button>
-      </div>
+        )}
+      </main>
     </div>
   );
 }
+
+export default HouseRulesPage;

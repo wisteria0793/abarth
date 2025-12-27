@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export default function BookingInfoPage({ onAgree }) {
+function BookingInfoPage({ onAgree, onBack }) {
   const { t } = useTranslation();
   const [agreed, setAgreed] = useState(false);
+  const isViewMode = !!onBack;
 
   const handleNext = () => {
     if (agreed) {
@@ -12,10 +13,10 @@ export default function BookingInfoPage({ onAgree }) {
   };
 
   return (
-    <div className="page-overlay">
-      <div className="page-card">
-        <h1 className="page-title">{t('booking_info_title')}</h1>
-        <p className="page-desc">{t('booking_info_desc')}</p>
+    <div className="App">
+      <main style={{ padding: '40px 24px', maxWidth: '800px', margin: '0 auto' }}>
+        <h1 style={{ fontSize: '28px', marginBottom: '12px' }}>{t('booking_info_title')}</h1>
+        <p style={{ color: '#64748b', marginBottom: '32px', fontSize: '16px' }}>{t('booking_info_desc')}</p>
         
         <ul className="terms-list">
           <li>{t('booking_info_checkin')}</li>
@@ -40,7 +41,10 @@ export default function BookingInfoPage({ onAgree }) {
         >
           {t('booking_info_next')}
         </button>
-      </div>
+        )}
+      </main>
     </div>
   );
 }
+
+export default BookingInfoPage;

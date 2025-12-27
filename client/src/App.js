@@ -5,25 +5,15 @@ import LanguageSelector from './LanguageSelector';
 import LanguageSwitcher from './LanguageSwitcher';
 import BookingInfoPage from './BookingInfoPage';
 import HouseRulesPage from './HouseRulesPage';
+import WiFiInfoPage from './WiFiInfoPage';
+import AddAmenityPage from './AddAmenityPage';
+import FAQPage from './FAQPage';
 
 function App() {
   const { t } = useTranslation();
   const [step, setStep] = useState('language'); // language, booking, rules, main
+  const [currentPage, setCurrentPage] = useState(null); // wifi, amenity, faq, null
   const amenities = t('amenities', { returnObjects: true });
-
-  useEffect(() => {
-    // Check onboarding completion on mount
-    const onboardingComplete = localStorage.getItem('onboardingComplete');
-    const saved = localStorage.getItem('lang');
-    
-    if (saved) {
-      if (onboardingComplete) {
-        setStep('main');
-      } else {
-        setStep('booking');
-      }
-    }
-  }, []);
 
   const handleLanguageSelected = () => {
     setStep('booking');
@@ -34,7 +24,6 @@ function App() {
   };
 
   const handleRulesAgreed = () => {
-    localStorage.setItem('onboardingComplete', 'true');
     setStep('main');
   };
 
@@ -71,11 +60,19 @@ function App() {
 
       <main>
         <section className="action-buttons">
-          <button className="action-btn">{t('wifi_info')}</button>
-          <button className="action-btn">{t('add_amenity')}</button>
-          <button className="action-btn">{t('faq')}</button>
+          <button className="action-btn" onClick={() => setCurrentPage('booking')}>{t('booking_info_title')}</button>
+          <button className="action-btn" onClick={() => setCurrentPage('rules')}>{t('house_rules_title')}</button>
+          <button className="action-btn" onClick={() => setCurrentPage('wifi')}>{t('wifi_info')}</button>
+          <button className="action-btn" onClick={() => setCurrentPage('amenity')}>{t('add_amenity')}</button>
+          <button className="action-btn" onClick={() => setCurrentPage('faq')}>{t('faq')}</button>
         </section>
       </main>
+
+      {currentPage === 'booking' && <BookingInfoPage onBack={() => setCurrentPage(null)} />}
+      {currentPage === 'rules' && <HouseRulesPage onBack={() => setCurrentPage(null)} />}
+      {currentPage === 'wifi' && <WiFiInfoPage onBack={() => setCurrentPage(null)} />}
+      {currentPage === 'amenity' && <AddAmenityPage onBack={() => setCurrentPage(null)} />}
+      {currentPage === 'faq' && <FAQPage onBack={() => setCurrentPage(null)} />}
 
       <footer className="footer">
         <span>{t('footer_rights')}</span>
